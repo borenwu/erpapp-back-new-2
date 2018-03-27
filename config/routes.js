@@ -113,6 +113,13 @@ module.exports.routes = {
   'PUT /task/sale': 'TaskController.updateSale',
   'PUT /task/sale/undo': 'TaskController.undoSale',
 
+  //task wastes
+  'POST /taskwaste': 'TaskWasteController.createTaskWaste',
+  'POST /taskwastes': 'TaskWasteController.listTaskWastesByCompany',
+  'DELETE /taskwaste/:id': 'TaskWasteController.deleteTaskWasteById',
+  'PUT /taskwaste': 'TaskWasteController.updateTaskWaste',
+
+
   //sales dash
   'POST /salesdash/today': 'SalesDashController.listTodaySales',
   'POST /salesdash/sofar': 'SalesDashController.getMonthSoFarSales',

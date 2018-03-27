@@ -39,6 +39,11 @@ module.exports = {
     warehouseStockOps:{
       collection:'warehouseStockOp',
       via:'company'
+    },
+
+    taskWastes:{
+      collection:'taskWaste',
+      via:'company'
     }
   }
 };
