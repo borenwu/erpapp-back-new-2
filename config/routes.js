@@ -22,101 +22,103 @@
 
 module.exports.routes = {
 
-    /***************************************************************************
-     *                                                                          *
-     * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-     * etc. depending on your default view engine) your home page.              *
-     *                                                                          *
-     * (Alternatively, remove this and add an `index.html` file in your         *
-     * `assets` directory)                                                      *
-     *                                                                          *
-     ***************************************************************************/
+  /***************************************************************************
+   *                                                                          *
+   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+   * etc. depending on your default view engine) your home page.              *
+   *                                                                          *
+   * (Alternatively, remove this and add an `index.html` file in your         *
+   * `assets` directory)                                                      *
+   *                                                                          *
+   ***************************************************************************/
 
 
 
-    /***************************************************************************
-     *                                                                          *
-     * Custom routes here...                                                    *
-     *                                                                          *
-     * If a request to a URL doesn't match any of the custom routes above, it   *
-     * is matched against Sails route blueprints. See `config/blueprints.js`    *
-     * for configuration options and examples.                                  *
-     *                                                                          *
-     ***************************************************************************/
-    //company
-    '/POST /company': 'CompanyController.create',
-    '/GET /company': 'CompanyController.listAllCompanies',
+  /***************************************************************************
+   *                                                                          *
+   * Custom routes here...                                                    *
+   *                                                                          *
+   * If a request to a URL doesn't match any of the custom routes above, it   *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
+  //company
+  '/POST /company': 'CompanyController.create',
+  '/GET /company': 'CompanyController.listAllCompanies',
 
-    //user
-    'POST /user': 'UserController.create',
-    'POST /user/admin': 'UserController.createAdmin',
-    'POST /users': 'userController.listAllUsers',
-    'PUT /user': 'userController.update',
-    'PUT /user/password': 'userController.changePassword',
-    'DELETE /user': 'userController.delete',
-    'DELETE /user/:id': 'userController.deleteUserById',
-    'POST /user/login': 'UserController.login',
-    'POST /user/logout': 'UserController.logout',
+  //user
+  'POST /user': 'UserController.create',
+  'POST /user/admin': 'UserController.createAdmin',
+  'POST /users': 'userController.listAllUsers',
+  'PUT /user': 'userController.update',
+  'PUT /user/password': 'userController.changePassword',
+  'DELETE /user': 'userController.delete',
+  'DELETE /user/:id': 'userController.deleteUserById',
+  'POST /user/login': 'UserController.login',
+  'POST /user/logout': 'UserController.logout',
 
-    //client
-    'POST /client': 'ClientController.create',
-    'DELETE /client': 'ClientController.delete',
-    'POST /clients': 'ClientController.listAllClients',
-    'PUT /client': 'ClientController.update',
-    // 'PUT /client/:id': 'ClientController.updateById',
-    'GET /client/:id': 'ClientController.getClientById',
-    'DELETE /client/:id': 'ClientController.deleteClientById',
+  //client
+  'POST /client': 'ClientController.create',
+  'DELETE /client': 'ClientController.delete',
+  'POST /clients': 'ClientController.listAllClients',
+  'PUT /client': 'ClientController.update',
+  // 'PUT /client/:id': 'ClientController.updateById',
+  'GET /client/:id': 'ClientController.getClientById',
+  'DELETE /client/:id': 'ClientController.deleteClientById',
 
-    //supplier
-    'POST /supplier': 'SupplierController.create',
-    'DELETE /supplier': 'SupplierController.delete',
-    'POST /suppliers': 'SupplierController.listAllSuppliers',
-    'PUT /supplier': 'SupplierController.update',
-    // 'PUT /client/:id': 'ClientController.updateById',
-    'GET /supplier/:id': 'SupplierController.getSupplierById',
-    'DELETE /supplier/:id': 'SupplierController.deleteSupplierById',
+  //supplier
+  'POST /supplier': 'SupplierController.create',
+  'DELETE /supplier': 'SupplierController.delete',
+  'POST /suppliers': 'SupplierController.listAllSuppliers',
+  'PUT /supplier': 'SupplierController.update',
+  // 'PUT /client/:id': 'ClientController.updateById',
+  'GET /supplier/:id': 'SupplierController.getSupplierById',
+  'DELETE /supplier/:id': 'SupplierController.deleteSupplierById',
 
-    //account
-    'POST /accounts/client' :'AccountController.listAccountsByClient',
-    'POST /accounts/supplier' :'AccountController.listAccountsBySupplier',
-    'POST /accounts/receivablecr' :'AccountController.createClientReceivableCr',
-
-
-    //warehouse
-    'POST /warehouse/item': 'WarehouseController.createItem',
-    'DELETE /warehouse/item': 'WarehouseController.deleteItem',
-    'DELETE /warehouse/item/:id': 'WarehouseController.deleteItemById',
-    'POST /warehouse/items': 'WarehouseController.listAllItemsByCompany',
-    'PUT /warehouse/item': 'WarehouseController.updateItem',
-    'PUT /warehouse/item/stock': 'WarehouseController.stockItem',
-
-    //warehouse item op
-    'POST /warehouse/itemop': 'WarehouseController.createItemOp',
-    'DELETE /warehouse/itemop': 'WarehouseController.deleteItemOp',
-    'DELETE /warehouse/itemop/:id': 'WarehouseController.deleteItemOpById',
-    'POST /warehouse/itemop/undo': 'WarehouseController.undoItemOp',
-    'POST /warehouse/itemops': 'WarehouseController.listAllItemOpsByCompany',
-    'PUT /warehouse/itemop': 'WarehouseController.updateItemOp',
-    'POST /warehouse/itemop/check': 'WarehouseController.checkItemOp',
+  //account
+  'POST /accounts/client': 'AccountController.listAccountsByClient',
+  'POST /accounts/supplier': 'AccountController.listAccountsBySupplier',
+  'POST /accounts/receivablecr': 'AccountController.createClientReceivableCr',
+  'POST /accounts/payablecr': 'AccountController.createSupplierPayableCr',
+  'POST /accounts/payabledr' :'AccountController.createSupplierPayableDr',
 
 
-    //tasks
-    'POST /task': 'TaskController.create',
-    'POST /tasks': 'TaskController.listAllTasksByCompany',
-    'POST /tasksByClient': 'TaskController.listAllTasksByClient',
-    'DELETE /task': 'TaskController.delete',
-    'DELETE /task/:id': 'TaskController.deleteTaskById',
-    'PUT /task': 'TaskController.update',
-    'PUT /task/finish': 'TaskController.finishTask',
-    'PUT /task/sale': 'TaskController.updateSale',
-    'PUT /task/sale/undo': 'TaskController.undoSale',
+  //warehouse
+  'POST /warehouse/item': 'WarehouseController.createItem',
+  'DELETE /warehouse/item': 'WarehouseController.deleteItem',
+  'DELETE /warehouse/item/:id': 'WarehouseController.deleteItemById',
+  'POST /warehouse/items': 'WarehouseController.listAllItemsByCompany',
+  'PUT /warehouse/item': 'WarehouseController.updateItem',
+  'PUT /warehouse/item/stock': 'WarehouseController.stockItem',
 
-    //sales dash
-    'POST /salesdash/today': 'SalesDashController.listTodaySales',
-    'POST /salesdash/sofar': 'SalesDashController.getMonthSoFarSales',
-    'POST /salesdash/eachday': 'SalesDashController.getEachMonthDaySales',
+  //warehouse item op
+  'POST /warehouse/itemop': 'WarehouseController.createItemOp',
+  'DELETE /warehouse/itemop': 'WarehouseController.deleteItemOp',
+  'DELETE /warehouse/itemop/:id': 'WarehouseController.deleteItemOpById',
+  'POST /warehouse/itemop/undo': 'WarehouseController.undoItemOp',
+  'POST /warehouse/itemops': 'WarehouseController.listAllItemOpsByCompany',
+  'PUT /warehouse/itemop': 'WarehouseController.updateItemOp',
+  'POST /warehouse/itemop/check': 'WarehouseController.checkItemOp',
 
-    //warehouse dash
-    'POST /warehousedash/items' : 'WarehouseDashController.listAllItemsByItemName',
-    'POST /warehousedash/ratio' : 'WarehouseDashController.computeRatio'
+
+  //tasks
+  'POST /task': 'TaskController.create',
+  'POST /tasks': 'TaskController.listAllTasksByCompany',
+  'POST /tasksByClient': 'TaskController.listAllTasksByClient',
+  'DELETE /task': 'TaskController.delete',
+  'DELETE /task/:id': 'TaskController.deleteTaskById',
+  'PUT /task': 'TaskController.update',
+  'PUT /task/finish': 'TaskController.finishTask',
+  'PUT /task/sale': 'TaskController.updateSale',
+  'PUT /task/sale/undo': 'TaskController.undoSale',
+
+  //sales dash
+  'POST /salesdash/today': 'SalesDashController.listTodaySales',
+  'POST /salesdash/sofar': 'SalesDashController.getMonthSoFarSales',
+  'POST /salesdash/eachday': 'SalesDashController.getEachMonthDaySales',
+
+  //warehouse dash
+  'POST /warehousedash/items': 'WarehouseDashController.listAllItemsByItemName',
+  'POST /warehousedash/ratio': 'WarehouseDashController.computeRatio'
 };

@@ -79,7 +79,7 @@ const AccountService = {
 
     accountPayableCr: function (companyId, supplierName, op_name, amount, maker, invoice = '') {
         return new Promise((resolve, reject) => {
-            CheckService.checkClientName(companyId, supplierName)
+            CheckService.checkSupplierName(companyId, supplierName)
                 .then(_supplier => {
                     Account.create({
                         op_date: moment().format('YYYY-MM-DD'),
@@ -87,7 +87,7 @@ const AccountService = {
                         direction: '贷',
                         amount: amount,
                         invoice: invoice,
-                        client: _supplier.id,
+                        supplier: _supplier.id,
                         maker: maker
                     })
                         .then(account => {
