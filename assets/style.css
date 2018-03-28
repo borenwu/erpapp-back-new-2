@@ -7912,7 +7912,7 @@ base-chart.chart {
     padding: 0.5rem 1rem;
     margin-right: 0;
     background-color: #fff;
-    background-image: url("img/logo.png");
+    background-image: url("img/logo-gai.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 70px auto;
@@ -8088,6 +8088,7 @@ base-chart.chart {
   .sidebar .nav-dropdown-items {
     max-height: 0;
     padding: 0;
+    padding-left: 20px;
     margin: 0;
     overflow-y: hidden;
     transition: max-height .3s ease-in-out; }

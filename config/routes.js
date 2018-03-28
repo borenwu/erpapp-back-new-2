@@ -31,7 +31,7 @@ module.exports.routes = {
    * `assets` directory)                                                      *
    *                                                                          *
    ***************************************************************************/
-
+  'GET *': { controller: 'App', action: 'serve', skipAssets: true, skipRegex: /^\/api\/.*$/ },
 
 
   /***************************************************************************
@@ -44,8 +44,8 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
   //company
-  '/POST /company': 'CompanyController.create',
-  '/GET /company': 'CompanyController.listAllCompanies',
+  'POST /company': 'CompanyController.create',
+  'GET /company': 'CompanyController.listAllCompanies',
 
   //user
   'POST /user': 'UserController.create',

@@ -22,12 +22,12 @@ module.exports = {
     CheckService.checkCompanyId(companyId)
       .then(company => {
         return TaskWaste.create({
-          op_date: moment().format('YYYY-MM-'),
+          op_date: moment().format('YYYY-MM-DD'),
           waste_name: waste_name,
           unit: unit,
           amount:amount,
           maker:maker,
-          make_time: moment().format('YYYY-MM-'),
+          make_time: moment().format('YYYY-MM-DD'),
           company: companyId
         })
       })
