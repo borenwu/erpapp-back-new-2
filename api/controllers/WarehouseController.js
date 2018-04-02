@@ -124,7 +124,7 @@ module.exports = {
 
     if (!warehouseItemId) return res.badRequest({err: 'warehouse item id is missing'});
     let warehouseItem = {};
-    let new_balance = Number(balance) + Number(amount)
+    let new_balance = (Number(balance) + Number(amount)).toFixed(2)
     warehouseItem.balance = new_balance
 
     CheckService.checkSupplierName(companyId, supplierName)
@@ -175,6 +175,7 @@ module.exports = {
           return res.ok({status: 201, msg: 'tasks empty'});
         }
         _warehouseItems.map(i => {
+			i.balance = Number(i.balance).toFixed(2)
           i.supplier_name = i.supplier.supplier_name
           i.supplier_id = i.supplier.id
         })
@@ -366,7 +367,7 @@ module.exports = {
     CheckService.checkWarehouseItemId(companyId, itemId)
       .then(_warehouseItem => {
         let reduce = Number(order) - Number(re)
-        _warehouseItem.balance = Number(_warehouseItem.balance) - Number(reduce)
+        _warehouseItem.balance = (Number(_warehouseItem.balance) - Number(reduce)).toFixed(2)
         _warehouseItem.save()
         return WarehouseOp.update({id: itemOpId, warehouseItem_id: _warehouseItem.id}, warehouseOp)
       })

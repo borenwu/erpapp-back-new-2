@@ -23,6 +23,7 @@ module.exports = {
                     return res.ok({status:201,msg:'tasks empty'});
                 }
                 _warehouseItems.map(i=>{
+					i.balance = Number(i.balance).toFixed(2)
                     i.supplier_name = i.supplier.supplier_name
                     i.supplier_id = i.supplier.id
                 })
@@ -40,8 +41,8 @@ module.exports = {
                 WarehouseStockOp.find({company_id:companyId,warehouseItem:item_id}).sort('op_date DESC')
                     .then(stockOps=>{
                         if(stockOps.length===0){
-                            let total = item.init_balance
-                            let now = item.balance
+                            let total = Number(item.init_balance).toFixed(2)
+                            let now = Number(item.balance).toFixed(2)
                             let ratio = {
                                 total:total,
                                 now:now
@@ -49,8 +50,8 @@ module.exports = {
                             return res.ok({status:200,ratio:ratio})
                         }
                         else{
-                            let total = stockOps[0].new_balance
-                            let now = item.balance
+                            let total = Number(stockOps[0].new_balance).toFixed(2)
+                            let now = Number(item.balance).toFixed(2)
                             let ratio = {
                                 total:total,
                                 now:now
