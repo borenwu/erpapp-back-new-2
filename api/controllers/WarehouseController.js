@@ -20,6 +20,7 @@ module.exports = {
     let desc = req.param('desc')
     let unit = req.param('unit')
     let balance = req.param('balance')
+    let constant = req.param('constant') || 0
 
     CheckService.checkSupplierName(companyId, supplierName)
       .then(_supplier => {
@@ -30,7 +31,7 @@ module.exports = {
           unit: unit,
           balance: balance,
           init_balance: balance,
-          constant:0,
+          constant:constant,
           supplier: _supplier.id,
           company: companyId
         })
