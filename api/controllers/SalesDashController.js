@@ -97,6 +97,9 @@ module.exports = {
         $match:{"company_id":new ObjectID(companyId),"check_time":{"$gte":new Date(beginOfThisMonth),"$lte":new Date(today)}}
       },
       {
+        $sort :{"check_time":-1}
+      },
+      {
         $group: {
           _id: "$check_time",
           total: { $sum: "$sale" },
