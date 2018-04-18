@@ -101,6 +101,9 @@ module.exports = {
           _id: "$check_time",
           total: { $sum: "$sale" },
         }
+      },
+      {
+        $sort:{_id:1}
       }
     ]
 

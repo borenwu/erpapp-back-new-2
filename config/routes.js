@@ -128,5 +128,8 @@ module.exports.routes = {
 
   //warehouse dash
   'POST /warehousedash/items': 'WarehouseDashController.listAllItemsByItemName',
-  'POST /warehousedash/ratio': 'WarehouseDashController.computeRatio'
+  'POST /warehousedash/ratio': 'WarehouseDashController.computeRatio',
+
+  //data mining
+  'POST /data/kmeans' : 'DataMiningController.getKmeansModel'
 };
